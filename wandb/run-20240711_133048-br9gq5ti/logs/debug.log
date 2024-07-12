@@ -1,0 +1,23 @@
+2024-07-11 13:30:48,253 INFO    Thread-2  :31931 [wandb_setup.py:_flush():76] Current SDK version is 0.17.4
+2024-07-11 13:30:48,253 INFO    Thread-2  :31931 [wandb_setup.py:_flush():76] Configure stats pid to 31931
+2024-07-11 13:30:48,253 INFO    Thread-2  :31931 [wandb_setup.py:_flush():76] Loading settings from /home/chiar/.config/wandb/settings
+2024-07-11 13:30:48,253 INFO    Thread-2  :31931 [wandb_setup.py:_flush():76] Loading settings from /home/chiar/mldl-main/wandb/settings
+2024-07-11 13:30:48,253 INFO    Thread-2  :31931 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'target-target-callback', 'entity': 'poli_to', 'root_dir': '/home/chiar/mldl-main', 'sweep_id': 'czf0qlto', 'run_id': 'br9gq5ti', 'sweep_param_path': '/home/chiar/mldl-main/wandb/sweep-czf0qlto/config-br9gq5ti.yaml'}
+2024-07-11 13:30:48,253 INFO    Thread-2  :31931 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-07-11 13:30:48,253 INFO    Thread-2  :31931 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train_sb3_tuning.py', 'program_abspath': '/home/chiar/mldl-main/train_sb3_tuning.py', 'program': 'train_sb3_tuning.py'}
+2024-07-11 13:30:48,253 INFO    Thread-2  :31931 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-07-11 13:30:48,253 INFO    Thread-2  :31931 [wandb_init.py:_log_setup():529] Logging user logs to /home/chiar/mldl-main/wandb/run-20240711_133048-br9gq5ti/logs/debug.log
+2024-07-11 13:30:48,253 INFO    Thread-2  :31931 [wandb_init.py:_log_setup():530] Logging internal logs to /home/chiar/mldl-main/wandb/run-20240711_133048-br9gq5ti/logs/debug-internal.log
+2024-07-11 13:30:48,253 INFO    Thread-2  :31931 [wandb_init.py:init():569] calling init triggers
+2024-07-11 13:30:48,253 INFO    Thread-2  :31931 [wandb_init.py:init():577] wandb.init called with sweep_config: {'batch_size': 32, 'learning_rate': 0.1, 'n_epochs': 10, 'n_steps': 1024}
+config: {}
+2024-07-11 13:30:48,253 INFO    Thread-2  :31931 [wandb_init.py:init():619] starting backend
+2024-07-11 13:30:48,253 INFO    Thread-2  :31931 [wandb_init.py:init():623] setting up manager
+2024-07-11 13:30:48,257 INFO    Thread-2  :31931 [backend.py:_multiprocessing_setup():107] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-07-11 13:30:48,258 INFO    Thread-2  :31931 [wandb_init.py:init():631] backend started and connected
+2024-07-11 13:30:48,263 INFO    Thread-2  :31931 [wandb_run.py:_config_callback():1382] config_cb None None {'batch_size': 32, 'learning_rate': 0.1, 'n_epochs': 10, 'n_steps': 1024}
+2024-07-11 13:30:48,264 INFO    Thread-2  :31931 [wandb_init.py:init():720] updated telemetry
+2024-07-11 13:30:48,265 INFO    Thread-2  :31931 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-07-11 13:30:48,791 INFO    Thread-2  :31931 [wandb_run.py:_on_init():2402] communicating current version
+2024-07-11 13:30:48,883 INFO    Thread-2  :31931 [wandb_run.py:_on_init():2411] got version response 
+2024-07-11 13:30:48,883 INFO    Thread-2  :31931 [wandb_init.py:init():804] starting run threads in backend

@@ -1,0 +1,16 @@
+/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/stable_baselines3/ppo/ppo.py:146: UserWarning: You have specified a mini-batch size of 224, but because the `RolloutBuffer` is of size `n_steps * n_envs = 1024`, after every 4 untruncated mini-batches, there will be a truncated mini-batch of size 128
+We recommend using a `batch_size` that is a factor of `n_steps * n_envs`.
+Info: (n_steps=1024 and n_envs=1)
+  f"You have specified a mini-batch size of {batch_size},"
+Eval num_timesteps=500, episode_reward=100.72 +/- 11.53
+Episode length: 103.20 +/- 8.59
+New best mean reward!
+Eval num_timesteps=1000, episode_reward=108.16 +/- 7.61
+Episode length: 109.40 +/- 4.67
+New best mean reward!
+Eval num_timesteps=1500, episode_reward=3.29 +/- 0.01
+Episode length: 6.00 +/- 0.00
+Eval num_timesteps=2000, episode_reward=3.28 +/- 0.02
+Episode length: 6.00 +/- 0.00
+[35m 100%[39m [38m━━━━━━━━━━━━━━━━━━━━━━━━━━[39m [32m2,048/2,000 [39m [ [33m0:00:01[39m < [36m0:00:00[39m , [31m1,031 it/s[39m ]
+[?25h

@@ -1,0 +1,74 @@
+{
+    "os": "Linux-6.8.0-36-generic-x86_64-with-debian-trixie-sid",
+    "python": "3.7.12",
+    "heartbeatAt": "2024-07-10T12:26:18.043207",
+    "startedAt": "2024-07-10T12:26:17.590638",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "train_sb3_tuning.py",
+    "codePathLocal": "train_sb3_tuning.py",
+    "codePath": "train_sb3_tuning.py",
+    "host": "chiara-ASUS-EXPERTBOOK-B3402FEA-B3402FEA",
+    "username": "chiar",
+    "executable": "/home/chiar/anaconda3/envs/mldl/bin/python",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 3255.2998749999997,
+        "min": 400.0,
+        "max": 4700.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3699.954,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 691.045,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3693.542,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 2979.626,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3700.0,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 2346.658,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 3635.17,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 478.187,
+            "min": 400.0,
+            "max": 4700.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 265.1777763366699,
+            "used": 37.704612731933594
+        }
+    },
+    "memory": {
+        "total": 23.171894073486328
+    }
+}

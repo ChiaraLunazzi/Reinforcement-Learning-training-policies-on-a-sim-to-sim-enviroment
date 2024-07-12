@@ -1,0 +1,74 @@
+{
+    "os": "Linux-6.8.0-36-generic-x86_64-with-debian-trixie-sid",
+    "python": "3.7.12",
+    "heartbeatAt": "2024-07-11T09:32:24.236963",
+    "startedAt": "2024-07-11T09:32:23.575186",
+    "docker": null,
+    "cuda": null,
+    "args": [],
+    "state": "running",
+    "program": "udr_ole.py",
+    "codePathLocal": "udr_ole.py",
+    "codePath": "udr_ole.py",
+    "host": "chiara-ASUS-EXPERTBOOK-B3402FEA-B3402FEA",
+    "username": "chiar",
+    "executable": "/home/chiar/anaconda3/envs/mldl/bin/python",
+    "cpu_count": 4,
+    "cpu_count_logical": 8,
+    "cpu_freq": {
+        "current": 1237.4411249999998,
+        "min": 400.0,
+        "max": 4700.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 835.849,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 424.727,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1090.076,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1299.973,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1401.479,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 390.788,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1151.6,
+            "min": 400.0,
+            "max": 4700.0
+        },
+        {
+            "current": 1395.533,
+            "min": 400.0,
+            "max": 4700.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 265.1777763366699,
+            "used": 38.450653076171875
+        }
+    },
+    "memory": {
+        "total": 23.171894073486328
+    }
+}

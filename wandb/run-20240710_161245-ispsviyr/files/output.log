@@ -1,0 +1,91 @@
+Eval num_timesteps=500, episode_reward=75.95 +/- 4.46
+Episode length: 80.60 +/- 3.72
+New best mean reward!
+Eval num_timesteps=1000, episode_reward=71.35 +/- 6.84
+Episode length: 75.80 +/- 6.24
+wandb: ERROR Error while calling W&B API: could not find agent 7n20r8oz during
+agentHeartbeat (<Response [404]>)
+Exception in thread Thread-1:
+Traceback (most recent call last):
+  File
+"/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/wandb/sdk/lib/retry
+.py", line 131, in __call__
+    result = self._call_fn(*args, **kwargs)
+  File
+"/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/wandb/sdk/internal/
+internal_api.py", line 345, in execute
+    return self.client.execute(*args, **kwargs)  # type: ignore
+  File
+"/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/wandb/vendor/gql-0.
+2.0/wandb_gql/client.py", line 52, in execute
+    result = self._get_result(document, *args, **kwargs)
+  File
+"/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/wandb/vendor/gql-0.
+2.0/wandb_gql/client.py", line 60, in _get_result
+    return self.transport.execute(document, *args, **kwargs)
+  File
+"/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/wandb/sdk/lib/gql_r
+equest.py", line 59, in execute
+    request.raise_for_status()
+  File
+"/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/requests/models.py"
+, line 1021, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 404 Client Error: Not Found for url:
+https://api.wandb.ai/graphql
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File
+"/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/wandb/sdk/internal/
+internal_api.py", line 3016, in agent_heartbeat
+    timeout=60,
+  File
+"/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/wandb/sdk/internal/
+internal_api.py", line 320, in gql
+    **kwargs,
+  File
+"/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/wandb/sdk/lib/retry
+.py", line 147, in __call__
+    retry_timedelta_triggered = check_retry_fn(e)
+  File
+"/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/wandb/util.py",
+line 908, in no_retry_auth
+    raise CommError(f"Permission denied to access {wandb.run.path}")
+wandb.errors.CommError: Permission denied to access
+poli_to/target-target-callback/ispsviyr
+During handling of the above exception, another exception occurred:
+Traceback (most recent call last):
+  File "/home/chiar/anaconda3/envs/mldl/lib/python3.7/threading.py", line 926,
+in _bootstrap_inner
+    self.run()
+  File "/home/chiar/anaconda3/envs/mldl/lib/python3.7/threading.py", line 870,
+in run
+    self._target(*self._args, **self._kwargs)
+  File
+"/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/wandb/agents/pyagen
+t.py", line 166, in _heartbeat
+    commands = self._api.agent_heartbeat(self._agent_id, {}, run_status)
+  File
+"/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/wandb/apis/internal
+.py", line 157, in agent_heartbeat
+    return self.api.agent_heartbeat(*args, **kwargs)
+  File
+"/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/wandb/sdk/internal/
+internal_api.py", line 3020, in agent_heartbeat
+    message = ast.literal_eval(e.args[0])["message"]
+  File "/home/chiar/anaconda3/envs/mldl/lib/python3.7/ast.py", line 46, in
+literal_eval
+    node_or_string = parse(node_or_string, mode='eval')
+  File "/home/chiar/anaconda3/envs/mldl/lib/python3.7/ast.py", line 35, in parse
+    return compile(source, filename, mode, PyCF_ONLY_AST)
+  File "<unknown>", line 1
+    Permission denied to access poli_to/target-target-callback/ispsviyr
+                    ^
+SyntaxError: invalid syntax
+Eval num_timesteps=1500, episode_reward=118.29 +/- 1.10
+Episode length: 76.00 +/- 0.63
+New best mean reward!
+Eval num_timesteps=2000, episode_reward=118.60 +/- 1.27
+Episode length: 76.20 +/- 0.75
+New best mean reward!
+[35m 100%[39m [38m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[39m [32m2,048/2,000 [39m [ [33m0:00:02[39m < [36m0:00:00[39m , [31m573 it/s[39m ]

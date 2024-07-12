@@ -1,0 +1,14 @@
+Traceback (most recent call last):
+  File "train_sb3_tuning.py", line 119, in <module>
+    main()
+  File "train_sb3_tuning.py", line 111, in main
+    wandb.agent(sweep_id=sweep_id, function=train_test(train_env, test_env))
+  File "train_sb3_tuning.py", line 51, in train_test
+    render=False)
+  File "/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/stable_baselines3/common/callbacks.py", line 381, in __init__
+    eval_env = DummyVecEnv([lambda: eval_env])
+  File "/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 27, in __init__
+    if len(set([id(env.unwrapped) for env in self.envs])) != len(self.envs):
+  File "/home/chiar/anaconda3/envs/mldl/lib/python3.7/site-packages/stable_baselines3/common/vec_env/dummy_vec_env.py", line 27, in <listcomp>
+    if len(set([id(env.unwrapped) for env in self.envs])) != len(self.envs):
+AttributeError: 'NoneType' object has no attribute 'unwrapped'

@@ -1,0 +1,10 @@
+Traceback (most recent call last):
+  File "udr_ole.py", line 98, in <module>
+    main()
+  File "udr_ole.py", line 92, in main
+    train_test(args, train_env, test_env, w)
+  File "udr_ole.py", line 52, in train_test
+    custom_callback=CustomCallback(train_env, width_factor)
+  File "/home/chiar/mldl-main/myCall.py", line 9, in __init__
+    self.callback.parent = self
+AttributeError: 'CustomCallback' object has no attribute 'callback'

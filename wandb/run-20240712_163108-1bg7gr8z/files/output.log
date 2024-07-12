@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "train2.py", line 76, in <module>
+    main()
+  File "train2.py", line 69, in main
+    agent.update_policy()
+  File "/home/chiar/mldl-main/algorithms/agent_reinforce2.py", line 130, in update_policy
+    loss.backward()
+AttributeError: 'NoneType' object has no attribute 'backward'

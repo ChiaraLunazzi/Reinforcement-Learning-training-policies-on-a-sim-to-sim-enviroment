@@ -1,0 +1,18 @@
+Eval num_timesteps=500, episode_reward=170.99 +/- 28.71
+Episode length: 179.00 +/- 17.09
+New best mean reward!
+Eval num_timesteps=1000, episode_reward=180.31 +/- 46.17
+Episode length: 182.60 +/- 25.94
+New best mean reward!
+Eval num_timesteps=1500, episode_reward=179.05 +/- 44.85
+Episode length: 182.60 +/- 30.26
+Eval num_timesteps=2000, episode_reward=176.74 +/- 34.25
+Episode length: 184.00 +/- 28.39
+Eval num_timesteps=2500, episode_reward=190.41 +/- 64.71
+Episode length: 205.00 +/- 71.69
+New best mean reward!
+Eval num_timesteps=3000, episode_reward=215.86 +/- 114.77
+Episode length: 207.40 +/- 71.30
+New best mean reward!
+[35m 100%[39m [38m━━━━━━━━━━━━━━━━━━━━━━━━━━━━[39m [32m3,072/2,000 [39m [ [33m0:00:01[39m < [36m0:00:00[39m , [31m807 it/s[39m ]
+[?25h

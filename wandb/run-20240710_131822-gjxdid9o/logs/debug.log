@@ -1,0 +1,35 @@
+2024-07-10 13:18:22,638 INFO    Thread-3  :34565 [wandb_setup.py:_flush():76] Current SDK version is 0.17.4
+2024-07-10 13:18:22,639 INFO    Thread-3  :34565 [wandb_setup.py:_flush():76] Configure stats pid to 34565
+2024-07-10 13:18:22,639 INFO    Thread-3  :34565 [wandb_setup.py:_flush():76] Loading settings from /home/chiar/.config/wandb/settings
+2024-07-10 13:18:22,639 INFO    Thread-3  :34565 [wandb_setup.py:_flush():76] Loading settings from /home/chiar/mldl-main/wandb/settings
+2024-07-10 13:18:22,639 INFO    Thread-3  :34565 [wandb_setup.py:_flush():76] Loading settings from environment variables: {'project': 'project4-tuning-source', 'entity': 'poli_to', 'root_dir': '/home/chiar/mldl-main', 'sweep_id': '1jet0fav', 'run_id': 'gjxdid9o', 'sweep_param_path': '/home/chiar/mldl-main/wandb/sweep-1jet0fav/config-gjxdid9o.yaml'}
+2024-07-10 13:18:22,639 INFO    Thread-3  :34565 [wandb_setup.py:_flush():76] Applying setup settings: {'_disable_service': False}
+2024-07-10 13:18:22,639 INFO    Thread-3  :34565 [wandb_setup.py:_flush():76] Inferring run settings from compute environment: {'program_relpath': 'train_sb3_tuning2.py', 'program_abspath': '/home/chiar/mldl-main/train_sb3_tuning2.py', 'program': 'train_sb3_tuning2.py'}
+2024-07-10 13:18:22,639 INFO    Thread-3  :34565 [wandb_setup.py:_flush():76] Applying login settings: {}
+2024-07-10 13:18:22,639 INFO    Thread-3  :34565 [wandb_init.py:_log_setup():529] Logging user logs to /home/chiar/mldl-main/wandb/run-20240710_131822-gjxdid9o/logs/debug.log
+2024-07-10 13:18:22,639 INFO    Thread-3  :34565 [wandb_init.py:_log_setup():530] Logging internal logs to /home/chiar/mldl-main/wandb/run-20240710_131822-gjxdid9o/logs/debug-internal.log
+2024-07-10 13:18:22,639 INFO    Thread-3  :34565 [wandb_init.py:init():569] calling init triggers
+2024-07-10 13:18:22,639 INFO    Thread-3  :34565 [wandb_init.py:init():577] wandb.init called with sweep_config: {'batch_size': 32, 'learning_rate': 0.001, 'n_epochs': 10, 'n_steps': 1024}
+config: {}
+2024-07-10 13:18:22,639 INFO    Thread-3  :34565 [wandb_init.py:init():619] starting backend
+2024-07-10 13:18:22,639 INFO    Thread-3  :34565 [wandb_init.py:init():623] setting up manager
+2024-07-10 13:18:22,642 INFO    Thread-3  :34565 [backend.py:_multiprocessing_setup():107] multiprocessing start_methods=fork,spawn,forkserver, using: spawn
+2024-07-10 13:18:22,643 INFO    Thread-3  :34565 [wandb_init.py:init():631] backend started and connected
+2024-07-10 13:18:22,650 INFO    Thread-3  :34565 [wandb_run.py:_config_callback():1382] config_cb None None {'batch_size': 32, 'learning_rate': 0.001, 'n_epochs': 10, 'n_steps': 1024}
+2024-07-10 13:18:22,651 INFO    Thread-3  :34565 [wandb_init.py:init():720] updated telemetry
+2024-07-10 13:18:22,651 INFO    Thread-3  :34565 [wandb_init.py:init():753] communicating run to backend with 90.0 second timeout
+2024-07-10 13:18:23,085 INFO    Thread-3  :34565 [wandb_run.py:_on_init():2402] communicating current version
+2024-07-10 13:18:23,180 INFO    Thread-3  :34565 [wandb_run.py:_on_init():2411] got version response 
+2024-07-10 13:18:23,182 INFO    Thread-3  :34565 [wandb_init.py:init():804] starting run threads in backend
+2024-07-10 13:18:24,513 INFO    Thread-3  :34565 [wandb_run.py:_console_start():2380] atexit reg
+2024-07-10 13:18:24,514 INFO    Thread-3  :34565 [wandb_run.py:_redirect():2235] redirect: wrap_raw
+2024-07-10 13:18:24,514 INFO    Thread-3  :34565 [wandb_run.py:_redirect():2300] Wrapping output streams.
+2024-07-10 13:18:24,514 INFO    Thread-3  :34565 [wandb_run.py:_redirect():2325] Redirects installed.
+2024-07-10 13:18:24,515 INFO    Thread-3  :34565 [wandb_init.py:init():847] run started, returning control to user process
+2024-07-10 13:18:27,742 INFO    Thread-3  :34565 [wandb_run.py:_finish():2109] finishing run poli_to/project4-tuning-source/gjxdid9o
+2024-07-10 13:18:27,742 INFO    Thread-3  :34565 [wandb_run.py:_atexit_cleanup():2349] got exitcode: 0
+2024-07-10 13:18:27,742 INFO    Thread-3  :34565 [wandb_run.py:_restore():2332] restore
+2024-07-10 13:18:27,742 INFO    Thread-3  :34565 [wandb_run.py:_restore():2338] restore done
+2024-07-10 13:18:31,146 INFO    Thread-3  :34565 [wandb_run.py:_footer_history_summary_info():3991] rendering history
+2024-07-10 13:18:31,147 INFO    Thread-3  :34565 [wandb_run.py:_footer_history_summary_info():4023] rendering summary
+2024-07-10 13:18:31,153 INFO    Thread-3  :34565 [wandb_run.py:_footer_sync_info():3950] logging synced files
