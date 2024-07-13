@@ -3,7 +3,7 @@ import argparse
 import numpy as np
 import matplotlib.pyplot as plt
 from scipy.stats import truncnorm
-from env.custom_hopper2 import *
+from env.custom_hopper import *
 from env.mujoco_env import MujocoEnv
 from stable_baselines3 import PPO
 from stable_baselines3.common.evaluation import evaluate_policy
