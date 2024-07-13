@@ -18,28 +18,24 @@ class CustomHopper(MujocoEnv, utils.EzPickle):
             self.source_masses = np.copy(self.sim.model.body_mass[1:])
             self.source = True
 
-    def set_random_parameters(self, width_factor, mu = 0, sigma = 0, normal_distribution = False):
+    def set_random_parameters(self, width_factor):
         """Set random masses"""
-        self.set_parameters(self.sample_parameters(width_factor, mu, sigma, normal_distribution))
+        self.set_parameters(self.sample_parameters(width_factor))
 
-    def sample_parameters(self, width_factor, mu, sigma, normal_distribution):
+    def sample_parameters(self, width_factor):
         """Sample masses according to a domain randomization distribution"""
         
         #
         # TASK 6: implement domain randomization. Remember to sample new dynamics parameter
         #         at the start of each training episode.
-        if self.source :
+        if self.source is True:
             original_masses = self.source_masses
         else: 
             original_masses = self.original_masses
             
         bounds = [(mass * (1 - width_factor), mass * (1 + width_factor)) for mass in original_masses]
-        if normal_distribution is False:
-            randomized_masses = [np.random.uniform(low, high) for low, high in bounds][1:]
-        else:
-            randomized_masses = [stats.truncnorm.rvs((low-mu)/sigma, (2*high-mu)/sigma, loc=mu, scale=sigma, size=1) for low, high in bounds] [1:]
-        
-        randomized_masses.insert(0, self.source_masses[0])    
+        randomized_masses = [np.random.uniform(low, high) for low, high in bounds][1:]
+        randomized_masses.insert(0, original_masses[0])
         return randomized_masses
 
 
