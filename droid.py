@@ -1,9 +1,10 @@
 import gym
 import argparse
+import wandb
 import numpy as np
 import matplotlib.pyplot as plt
-from scipy.stats import truncnorm
 from env.custom_hopper import *
+from scipy.stats import truncnorm
 from env.mujoco_env import MujocoEnv
 from stable_baselines3 import PPO
 from stable_baselines3.common.evaluation import evaluate_policy
@@ -96,7 +97,7 @@ def main():
     
     if args.seed is not None:
         target_env.seed(args.seed)
-        # sim_env.seed(args.seed)
+        sim_env.seed(args.seed)
         
     target_parameters = [0.001, 3072, 32, 20]
     sim_parameters = [0.001, 3072, 32, 50]
@@ -124,7 +125,7 @@ def main():
     sim_trajectories = normalize(sim_trajectories)
     
     args.masses = sim_env.get_parameters()
-    
+    wandb.init(project="DROID")
     prev_mean_reward = evaluate(target_env, best_model, n_eval_episodes=50)
     mean_reward = 0
     
@@ -132,15 +133,16 @@ def main():
     
     f = open("droid.txt",'w')
     
-    print(f"Original masses of the sim environment: {args.masses} \t Original distance: {distance} \t Original mean reward: {prev_mean_reward}", file=f)
+    f.write(f"Original masses of the sim environment: {args.masses} \t Original distance: {distance} \t Original mean reward: {prev_mean_reward}")
     print(f"Original masses of the sim environment: {args.masses}")
     print(f'Original distance: {distance}')
     print(f'Original mean reward: {prev_mean_reward}')
     
     attempts = 0
-    n_max = 100  # we try to align the trajectories for n_max times 
+    n_max = 10  # we try to align the trajectories for n_max times 
 
     while attempts < n_max:
+        wandb.log({"distance": distance, "mean_reward": mean_reward})
         Jprev = float('inf')
         if mean_reward >= prev_mean_reward:
             prev_mean_reward = mean_reward
@@ -162,13 +164,16 @@ def main():
         print(f"New masses: {sim_env.get_parameters()}")
         distance = get_distance(sim_trajectories, target_trajectories)
         mean_reward = evaluate(target_env, model, n_eval_episodes=50)
-        print(f'Actual distance: {distance}\t Actual mean reward: {mean_reward}', file = f)
+        f.write(f'Actual distance: {distance}\t Actual mean reward: {mean_reward}')
         print(f'Actual distance: {distance}\t Actual mean reward: {mean_reward}')
         attempts += 1
         if distance < tol:
             best_model = model
             break
+    wand.finish()
     mean_reward = evaluate(target_env, best_model, n_eval_episodes=50, render=True)
+    f.write(f"Best mean reward: {mean_reward}")
+    f.close()
     print(f"Best mean reward: {mean_reward}")
     plot(target_trajectories, sim_trajectories, "convergence")
 if __name__ == '__main__':
