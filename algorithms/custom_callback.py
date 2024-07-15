@@ -1,5 +1,5 @@
 from stable_baselines3.common.callbacks import BaseCallback
-from env.custom_hopper2 import *
+from env.custom_hopper import *
 
 class myCallback(BaseCallback):
     def __init__(self, train_env, width: float, verbose: int = 0):

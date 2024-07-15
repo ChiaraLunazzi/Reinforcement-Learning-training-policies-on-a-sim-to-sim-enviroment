@@ -14,6 +14,7 @@ def parse_args():
     parser.add_argument('--device', default='cpu', type=str, help='network device [cpu, cuda]')
     parser.add_argument('--render', default=False, action='store_true', help='Render the simulator')
     parser.add_argument('--episodes', default=10, type=int, help='Number of test episodes')
+    parser.add_argument('--seed', default=1000, type=int, help='Random seed')
 
     return parser.parse_args()
 
@@ -24,6 +25,8 @@ def main():
 
 	env = gym.make('CustomHopper-source-v0')
 	# env = gym.make('CustomHopper-target-v0')
+	if args.seed is not None:
+		env.seed(args.seed)
 
 	print('Action space:', env.action_space)
 	print('State space:', env.observation_space)
@@ -32,7 +35,7 @@ def main():
 	observation_space_dim = env.observation_space.shape[-1]
 	action_space_dim = env.action_space.shape[-1]
 
-	policy = Policy(observation_space_dim, action_space_dim)
+	policy = Policy(observation_space_dim, action_space_dim, args.seed)
 	policy.load_state_dict(torch.load(args.model), strict=True)
 
 	agent = Agent(policy, device=args.device)

@@ -8,7 +8,6 @@ from env.mujoco_env import MujocoEnv
 from stable_baselines3 import PPO
 from stable_baselines3.common.evaluation import evaluate_policy
 from stable_baselines3.common.monitor import Monitor
-#from utils2 import estimate_parameter, set_hyperparameters, train, optimal_parameter_PPO
 
 def parse_args():
     parser = argparse.ArgumentParser()
