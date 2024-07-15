@@ -1,6 +1,5 @@
 import gym
 import argparse
-import wandb
 import numpy as np
 import matplotlib.pyplot as plt
 from env.custom_hopper import *
@@ -55,9 +54,9 @@ def evaluate(eval_env, model, n_eval_episodes, render=False):
     mean_reward, std_reward = evaluate_policy(model, eval_env, n_eval_episodes=n_eval_episodes, deterministic=True, render=render)
     return mean_reward
 
-def get_estimator(env):
-    mu = np.mean(env.get_parameters())
-    sigma = np.std(env.get_parameters())
+def get_estimator(params):
+    mu = np.mean(params)
+    sigma = np.std(params)
     return mu, sigma  
 
 def randomize_mass(env, mu, sigma, n_masses):
@@ -79,7 +78,7 @@ def get_distance(t1, t2):
     for p1, p2 in zip(t1,t2):
         distance[k] = np.linalg.norm(p1-p2)
         k +=1
-    return np.max(distance)
+    return np.mean(distance)
     
 def plot(t1, t2, title):
     plt.plot(t1[:, 0], t1[:, 1], color='r', label='target')
@@ -103,7 +102,7 @@ def main():
     sim_parameters = [0.001, 3072, 32, 50]
     
     # number of time we will randomize masses
-    M = 100
+    M = 25
     
     # penalty and discount factor
     b = 100
@@ -112,59 +111,54 @@ def main():
     # tolerance
     tol = 1e-2
     
-    mu, sigma = get_estimator(target_env)
+    mu, sigma = get_estimator(target_env.get_parameters())
     
     # collect the trajectories over target_env
-    target_trajectories, _ = train(target_env, target_parameters, n_timesteps=2000)
+    target_trajectories, model = train(target_env, target_parameters, n_timesteps=2000)
+    target_mean_reward = evaluate (target_env, model,  n_eval_episodes=50)
     target_trajectories = np.array(target_trajectories)
     target_trajectories = normalize(target_trajectories)
     N = len(target_trajectories)
     
-    sim_trajectories, best_model = train(sim_env, sim_parameters, n_timesteps=2000)
+    sim_trajectories, model = train(sim_env, sim_parameters, n_timesteps=2000)
     sim_trajectories = np.array(sim_trajectories)
     sim_trajectories = normalize(sim_trajectories)
     
     args.masses = sim_env.get_parameters()
-    wandb.init(project="DROID")
-    prev_mean_reward = evaluate(target_env, best_model, n_eval_episodes=50)
-    mean_reward = 0
+    mean_reward = evaluate(target_env, model, n_eval_episodes=50)
+    prev_mean_reward = 0
     
     distance = get_distance(sim_trajectories, target_trajectories)
     
-    f = open("droid.txt",'w')
-    
-    f.write(f"Original masses of the sim environment: {args.masses} \t Original distance: {distance} \t Original mean reward: {prev_mean_reward}")
     print(f"Original masses of the sim environment: {args.masses}")
-    print(f'Original distance: {distance}')
-    print(f'Original mean reward: {prev_mean_reward}')
+    print(f"Original distance : {distance}")
+    print(f'Original mean reward: {mean_reward}')
     
     attempts = 0
-    n_max = 10  # we try to align the trajectories for n_max times 
+    n_max = 100  # we try to align the trajectories for n_max times 
 
     while attempts < n_max:
-        wandb.log({"distance": distance, "mean_reward": mean_reward})
         Jprev = float('inf')
         if mean_reward >= prev_mean_reward:
             prev_mean_reward = mean_reward
-            args.masses = sim_env.get_parameters()
+            #args.masses = sim_env.get_parameters()
             best_model = model
         masses = randomize_mass(sim_env, mu, sigma, M)      
         for mass in masses:
             sim_env.set_parameters(mass)
-            trajectories, model = train(sim_env, sim_parameters, n_timesteps=2000)
+            trajectories , model = train(sim_env, sim_parameters, n_timesteps=2000)
             trajectories = np.array(trajectories)
             trajectories = normalize(trajectories)
-            J = 1/N *sum((np.linalg.norm(trajectories - np.power(target_trajectories, n+1))) for n in range (N))
+            J = 1/N *sum(np.linalg.norm(trajectories - np.power(target_trajectories, n+1)) for n in range(N))
             if J < Jprev:
                 sim_trajectories = trajectories
                 best_parameters = sim_env.get_parameters()
                 Jprev = J
         sim_env.set_parameters(best_parameters)
-        mu, sigma = get_estimator(sim_env)
-        print(f"New masses: {sim_env.get_parameters()}")
+        mu, sigma = get_estimator(best_parameters)
+        print(f"New masses: {best_parameters}")
         distance = get_distance(sim_trajectories, target_trajectories)
         mean_reward = evaluate(target_env, model, n_eval_episodes=50)
-        f.write(f'Actual distance: {distance}\t Actual mean reward: {mean_reward}')
         print(f'Actual distance: {distance}\t Actual mean reward: {mean_reward}')
         attempts += 1
         if distance < tol:
@@ -172,8 +166,6 @@ def main():
             break
     wand.finish()
     mean_reward = evaluate(target_env, best_model, n_eval_episodes=50, render=True)
-    f.write(f"Best mean reward: {mean_reward}")
-    f.close()
     print(f"Best mean reward: {mean_reward}")
     plot(target_trajectories, sim_trajectories, "convergence")
 if __name__ == '__main__':
