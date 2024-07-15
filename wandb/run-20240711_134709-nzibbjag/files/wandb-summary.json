@@ -1,1 +1,0 @@
-{"mean_reward": 87.49115830000001, "learning_rate": 0.01, "n_steps": 3072, "batch_size": 32, "n_epochs": 20, "_timestamp": 1720698437.066797, "_runtime": 7.4340620040893555, "_step": 0, "_wandb": {"runtime": 7}}
